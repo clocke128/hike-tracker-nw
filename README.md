@@ -146,6 +146,16 @@ GitHub performs this work on a hosted runner. The laptop does not need to remain
 
 The workflow tests committed code and data rules. It does not determine whether a model, analysis, or business conclusion is academically correct.
 
+## Storage choices
+
+The example pipeline uses Parquet for processed tabular files and DuckDB
+for local SQL analytics. These are tested defaults, not capstone requirements.
+
+The capstone owner should evaluate whether to keep, replace, or extend them
+based on the real data sources, scale, access patterns, analytical requirements,
+and business case. The real project may use other file formats, databases,
+warehouses, or processing technologies.
+
 ## API keys
 
 Never commit API keys or place them directly in notebooks.
