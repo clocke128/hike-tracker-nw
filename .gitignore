@@ -21,3 +21,12 @@ __pycache__/
 .Rhistory
 .RData
 .Rproj.user/
+
+# Generated pipeline outputs
+data/raw/**
+data/processed/**
+data/manifests/**
+data/*.duckdb
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/manifests/.gitkeep
