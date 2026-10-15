@@ -1,0 +1,23 @@
+# Environments and secrets
+.venv/
+.env
+
+# Data stays out of git (size + licensing); code and notebooks go in
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+*.duckdb
+*.duckdb.wal
+
+# Python / tooling caches
+__pycache__/
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/

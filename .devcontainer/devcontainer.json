@@ -1,0 +1,59 @@
+{
+  "name": "Parks Capstone Workspace",
+  "image": "mcr.microsoft.com/devcontainers/base:noble",
+
+  "features": {
+    "ghcr.io/rocker-org/devcontainer-features/r-apt:0": {
+      "vscodeRSupport": "lsp"
+    },
+    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+      "packages": "python3-venv,python3-dev,r-cran-tidyverse,r-cran-duckdb,r-cran-arrow,r-cran-sf,r-cran-httr2,r-cran-irkernel"
+    }
+  },
+  "overrideFeatureInstallOrder": [
+    "ghcr.io/rocker-org/devcontainer-features/r-apt",
+    "ghcr.io/rocker-org/devcontainer-features/apt-packages"
+  ],
+
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb"
+  },
+
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "waitFor": "postCreateCommand",
+
+  "secrets": {
+    "NPS_API_KEY": {
+      "description": "National Park Service API key (parks, alerts, campgrounds). Free and instant. Optional — you can add it later.",
+      "documentationUrl": "https://www.nps.gov/subjects/developer/get-started.htm"
+    },
+    "RIDB_API_KEY": {
+      "description": "Recreation.gov RIDB API key (facilities, campsites). Free with a Recreation.gov account. Optional.",
+      "documentationUrl": "https://ridb.recreation.gov/"
+    }
+  },
+
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "README.md",
+        "notebooks/00_start_here.ipynb"
+      ]
+    },
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.datawrangler",
+        "charliermarsh.ruff",
+        "REditorSupport.r",
+        "mechatroner.rainbow-csv"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.venv/bin/python",
+        "python.terminal.activateEnvironment": true
+      }
+    }
+  }
+}
